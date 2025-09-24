@@ -5,6 +5,59 @@
 ### WARNING: THE LATEST UPDATES WILL MAKE YOUR MAP FILES INCOMPATIBLE WITH OLDER VERSIONS OF EFPSE.
 #### Maps will be automatically backed-up to 'Maps/mapname.eem_BeforeFormatUpdate' before conversion, but I still recommend that you backup your project first.
 
+## [2025-09-25_0108](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-09-25_0108.exe) : (1.11 alpha 50)
+### Potentially breaking change:
+- Local variables (variables that aren't map/global/db) are now reset properly when changing maps or starting a new game.
+
+### Additions:
+- Added steam achievement/stat support with some new script commands:
+  -  steam achievement unlock [achievement_api_name] //unlocks an achievement. "achievement_api_name" must be the same as it is in your steam developer dashboard.
+  - steam achievement check [achievement_api_name] [output variable name] //sets specified variable to 0/1 to indicate if the achievement is unlocked.
+  - steam achievement lock [achievement_api_name] //re-locks an achievement (useful for testing).
+  - steam stat check [stat_api_name] [output variable name] //sets specified variable to the current stat value.
+  - steam stat set [stat_api_name] [value] //sets specified stat to value.
+  - steam stat increment [stat_api_name] [value] //adds 'value' to the specified stat.
+
+For testing, you'll need to put a steam_appid.txt file in your .exe folder, but you don't need to include this file in the builds you submit to steam.  
+If you aren't using steam, it's 100% safe to delete steam_api.dll from your game's folder.  
+	
+- Added 'alphablendmode' config.ini option. 0 = same as alpha 49, 1 = slower/multi-pass blending, 2 = no blending. Try 1 or 2 if you have any issues with entities disappearing when you look through transparent tiles (eg when looking through a chain-link fence).
+- Status text left/center alignment can now be changed from the hud configurator, rather than requiring a hud.dat modification.
+- Reduced default projectile collision radius and added an option in the weapon editor to change it (0 = no collision).
+- Added an 'fps' option for animated textures, allowing you to adjust the speed of each animation individually.
+- Added optional 'stretch' parameter to foreground/background in hud.dat (foreground [x] [y] [secondsPerFrame] [stretch: 0/1]) (background [x] [y] [stretch: 0/1]), allowing images to automatically stretch to fill the entire screen.
+- Added a 'unified pickup size' game config option, allowing all pickups to have the same size, regardless of resolution. (0 = off).
+- Added menu.script checkbox support for "texcompression" and "occlusiontest".
+
+### Changes:
+- "player camspeed" command and "CAMSPEED" action now also affect keyboard turning speed when 'player turn 1' is enabled.
+- Tilting is now disabled when 'player turn 1' is enabled.
+- Vsync is now always enabled while in the menu, preventing excess gpu usage while a game is paused.
+- Made bullet spark particle directions more accurate.
+- Lots of performance optimisations (very game and system dependent, but I've seen some games perform roughly 2x better than alpha 49).
+
+### Fixes:
+- Local variables weren't being saved/loaded properly.
+- Multi-texture models weren't loading the per-material textures.
+- Various collision bugs.
+- Variable names couldn't be longer than 32 characters.
+- "Test Game/Map" button would break if a game took more than a few seconds to load.
+- Any script lines with the word "None" would be skipped.
+- Some map scripts could be executed twice, leading to issues like entity duplication if the script spawned entities.
+- Explosions and projectiles would show a white square when trying to render a missing / incorrectly-named animation frame.
+- Crash when an invalid image was displayed in vn mode while 'textureinterpolation' was enabled.
+- Using CAMSPEED in fsm with just one parameter was causing the y-speed to be set to 0, rather than using the same speed for both x and y.
+- Shader uniforms weren't reset after starting a new game.
+- Shader uniforms weren't saved/loaded.
+- Weapon spread reduction while crouched didn't work with controllers.
+- Status text set to 'center' alignment wasn't aligned correctly.
+- Checkboxes and '<' menu elements didn't have a shadow.
+- Weapons brought from previous levels could be lost if the player died after loading their save.
+- Animated textures could have unintended duplicate frames if you imported a texture more than once (eg if you imported a texture for both walls and floors).
+- 3D weapons could disappear during a muzzleflash if 'posteffects' was enabled.
+- A few potential crashes.
+
+
 ## [2025-08-09_2301](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-08-09_2301.exe) : (1.11 alpha 49)
 - Fixed a Game.exe hang when config.ini was missing
 
