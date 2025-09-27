@@ -5,6 +5,17 @@
 ### WARNING: THE LATEST UPDATES WILL MAKE YOUR MAP FILES INCOMPATIBLE WITH OLDER VERSIONS OF EFPSE.
 #### Maps will be automatically backed-up to 'Maps/mapname.eem_BeforeFormatUpdate' before conversion, but I still recommend that you backup your project first.
 
+## [2025-09-27_1556](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-09-27_1556.exe) : (1.11 alpha 52)
+### Fixes:
+- Many collision issues.  
+- Potential crash/hang while loading a game (could cause Game.exe to stay running in the background, and could also crash the editor).
+- Various shader-related rendering issues.
+- The MODELTEXTURE command wasn't applying normals/emissives correctly.
+- Loading screen images weren't properly scaled to screen resolution/aspect ratio.
+- Changing aspect ratio without restarting the game would cause the world to seem stretched/squished.
+- Entities could disappear when they or the player was near a closed door.
+
+
 ## [2025-09-25_1802](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-09-25_1802.exe) : (1.11 alpha 51)
 ### Hotfix for alpha 50
 - Fixes a crash on maps with thousands of tiles/entities.
