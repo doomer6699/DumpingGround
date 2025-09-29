@@ -5,6 +5,16 @@
 ### WARNING: THE LATEST UPDATES WILL MAKE YOUR MAP FILES INCOMPATIBLE WITH OLDER VERSIONS OF EFPSE.
 #### Maps will be automatically backed-up to 'Maps/mapname.eem_BeforeFormatUpdate' before conversion, but I still recommend that you backup your project first.
 
+## [2025-09-29_1943](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-09-29_1943.exe) : (1.11 alpha 53)
+### Additions:
+- A game config option to limit the loop script update frequency. 0 = unlimited/same as fps, 20 = run up to 20 times per second. Loop script speed is still also capped by the fps, this just allows you to set an additional lower cap.
+
+### Fixes:
+- Enemy barrier blocks did nothing.
+- Projectile collisions would break at very high framerates (first world problems amirite).
+- Slowdown and startup.log spam when INCREMENT or DECREMENT fsm action was used without a number. (you all know startup.log tells you about script/fsm errors, right?)
+
+
 ## [2025-09-27_1556](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-09-27_1556.exe) : (1.11 alpha 52)
 ### Fixes:
 - Many collision issues.  
