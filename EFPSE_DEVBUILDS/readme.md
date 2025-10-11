@@ -5,6 +5,40 @@
 ### WARNING: THE LATEST UPDATES WILL MAKE YOUR MAP FILES INCOMPATIBLE WITH OLDER VERSIONS OF EFPSE.
 #### Maps will be automatically backed-up to 'Maps/mapname.eem_BeforeFormatUpdate' before conversion, but I still recommend that you backup your project first.
 
+## [2025-10-12_0241](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-10-12_0241.exe) : (1.11 alpha 54)
+
+### Potentially breaking changes:
+- Stereo sounds are spatialised now, so if you used 'SOUND' in an FSM to play a '2d' sound (one that can be heard anywhere on the level), you'll need to add some parameters to your SOUND actions to get the same behaviour. (set falloff and directionality to 0, more info below)
+
+### Additions:
+- Added 'tile check texture [x] [y] [z] [outVariable]', which sets 'outVariable' to the texture name of the tile at the specified coordinates, or 'None' if there's no tile placed there.
+- The 'height' parameter of the 'PROJECTILE' fsm action can now be set to 'player' to target the player's height instead of an offset.
+- If a weapon's "Max Ammo" is set below 0, it will now have infinite ammo.
+- Added "MOVE [x/side] [y/vertical] [z/front]" fsm action, allowing you to move the player/entity from an fsm. Coordinates are local to the entity, like the PARTICLES/CUSTOMPARTICLE/SPAWN actions. There's probably some collision bugs with this, I've only done some basic testing. 
+- Added optional parameters to 'SOUND' fsm action: SOUND [soundID] [Loop 0/1, default: 0] [minRadius, default: 256] [falloff, default: 0.5] [directionality, default: 0.9]. If loop is 1, the sound will loop. If the player is within 'minRadius', the sound will play at full volume. falloff is how quickly the sound will fade when the player moves away from the sound. Directionality is how much the audio left/right volume is affected by the direction the player is facin; 0 = audio stays the same no matter which direction you're facing, 1 = audio is completely muted in the ear facing away from the sound.
+- Added 'STOPSOUND' fsm action: STOPSOUND [soundID], to stop a sound which was started from the fsm.
+- MP3 support for music files.
+
+### Changes:
+- Audio system upgrade (unlimited sounds playing at once, spatialisation of stereo sounds, various other improvements)
+- Added playing sounds to savedata (sounds continue from when they were saved)
+
+### Fixes:
+- 'status' command wouldn't work if the message didn't change.
+- Hud masks weren't scaled properly at resolutions other than 1280x720.
+- Opening the pause menu while in a script would cause both the map music and the menu music to play at the same time.
+- Entities could replay their death animation after loading a save.
+- Collision was broken with tiles at y=0
+- Player would get sent to the void if gravity was set to 0.
+- Player could go through walls if gravity was negative.
+- Side-sliding doors didn't move in a direction that was consistent with their texture UV's.
+- Models could sometimes still be culled when 'disable culling' was checked.
+- Sounds would continue playing while the game was paused.
+- Weapon stats could change after loading a save.
+- Save slot asterisks weren't updated until the game was re-launched.
+- Editor would crash if you clicked 'test game' while a test build was already running.
+
+
 ## [2025-09-29_1943](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-09-29_1943.exe) : (1.11 alpha 53)
 ### Additions:
 - A game config option to limit the loop script update frequency. 0 = unlimited/same as fps, 20 = run up to 20 times per second. Loop script speed is still also capped by the fps, this just allows you to set an additional lower cap.
