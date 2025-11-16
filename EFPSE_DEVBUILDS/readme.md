@@ -5,6 +5,41 @@
 ### WARNING: THE LATEST UPDATES WILL MAKE YOUR MAP FILES INCOMPATIBLE WITH OLDER VERSIONS OF EFPSE.
 #### Maps will be automatically backed-up to 'Maps/mapname.eem_BeforeFormatUpdate' before conversion, but I still recommend that you backup your project first.
 
+## [2025-11-16_2234](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-11-16_2234.exe) : (1.11 alpha 55)
+
+### Breaking changes:
+- 'player weapon draw' is no longer off by 1 ("player weapon draw 1" would draw weapon 2).
+
+### Potentially breaking changes:
+- FSM states that have "NONE" as the next state will only run once per frame, rather than potentially looping many times in the same frame. This reduces the performance impact of states with very short frame times.
+- FSM timing has been adjusted to improve consistency at different framerates (still not 100% consistent, but it's much better than before).
+- Improved hinged door UV's
+
+### Additions:
+- Added 'Jump Enhancements' setting to the game config (enabled by default). This buffers jumps a few milliseconds before landing and a few milliseconds after walking off an edge, making jumping feel more responsive.
+- Added optional 'damage' parameter to 'EXPLOSION' fsm action (default is 80): EXPLOSION [name] [radius] [damage]
+
+### Changes:
+- Improved utf-8 text support (languages other than english and russian should work with menu/status/text now).
+- Build mode now disables collision, makes the player invincible, and flight speed is set to 2x the walk speed.
+- Small performance boost for tile rendering on dedicated gpu's.
+- Added cubemap support for steps, thin walls, and custom rectangle modifiers.
+
+### Fixes:
+- Some sounds weren't being loaded properly (keys, explosions).
+- Timescale pitch change only affected music.
+- Scripted music would restart after the script ended.
+- Map music would restart from the start after a 'music stop' command.
+- Invisible entities could show as a white square.
+- Memory corruption issue, which could cause a variety of inconsistent issues (light flickering, sound popping, crashing).
+- Weapons with infinite ammo would show a '%' where the ammo is supposed to be.
+- Input could become unresponsive while holding a scripted keybind.
+- Results from a CHECKPOS fsm action weren't usable until the next 'game' frame (not state frame), and could have issues saving to local variables.
+- Non-md3 models didn't work in build mode.
+- Crash when 'skybox' command was used in a map script.
+- Height offsets for the PROJECTILE fsm command didn't work.
+
+
 ## [2025-10-12_0241](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-10-12_0241.exe) : (1.11 alpha 54)
 
 ### Potentially breaking changes:
