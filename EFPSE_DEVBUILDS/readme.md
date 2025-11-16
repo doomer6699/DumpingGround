@@ -5,6 +5,10 @@
 ### WARNING: THE LATEST UPDATES WILL MAKE YOUR MAP FILES INCOMPATIBLE WITH OLDER VERSIONS OF EFPSE.
 #### Maps will be automatically backed-up to 'Maps/mapname.eem_BeforeFormatUpdate' before conversion, but I still recommend that you backup your project first.
 
+## [2025-11-16_2256](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-11-16_2256.exe) : (1.11 alpha 56)
+
+- Fixed a crash related to custom modifiers
+
 ## [2025-11-16_2234](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-11-16_2234.exe) : (1.11 alpha 55)
 
 ### Breaking changes:
