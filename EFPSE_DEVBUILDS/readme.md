@@ -5,6 +5,16 @@
 ### WARNING: THE LATEST UPDATES WILL MAKE YOUR MAP FILES INCOMPATIBLE WITH OLDER VERSIONS OF EFPSE.
 #### Maps will be automatically backed-up to 'Maps/mapname.eem_BeforeFormatUpdate' before conversion, but I still recommend that you backup your project first.
 
+## [2025-11-17_1530](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-11-17_1530.exe) : (1.11 alpha 57)
+
+### Fixes:
+- Using noclip would cause the player to sink through the ground and the land sound to be spammed (sorry for the hearing damage)
+- FSM actions in the DEATH state could be skipped
+- Issues with hud images when starting a new game
+- A potential inconsistent crash
+- Typing in the cheat console would run key-bound scripts and could spam letters
+- 3D weapons could render as completely black/white for a couple of frames after loading
+
 ## [2025-11-16_2256](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-11-16_2256.exe) : (1.11 alpha 56)
 
 - Fixed a crash related to custom modifiers
