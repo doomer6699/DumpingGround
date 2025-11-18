@@ -5,6 +5,18 @@
 ### WARNING: THE LATEST UPDATES WILL MAKE YOUR MAP FILES INCOMPATIBLE WITH OLDER VERSIONS OF EFPSE.
 #### Maps will be automatically backed-up to 'Maps/mapname.eem_BeforeFormatUpdate' before conversion, but I still recommend that you backup your project first.
 
+## [2025-11-18_1735](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-11-18_1735.exe) : (1.11 alpha 58)
+
+### Additions:
+- The engine will now try to create a crash.dmp file if it crashes. If you send me a crash.dmp, it will help me fix the issue.
+- Performance stats can be enabled with the 'perf' cheat. This gives you a general idea of what's taking the most time in each frame.
+- Added 'light createstatic' script command (exact same parameters as 'light create'). This lets lights spawned in a map script get baked if 'vertex chunk lighting' is enabled.
+
+### Fixes:
+- Hazard tiles on floors above the player could still hurt when passing below them.
+- Jump sound would be spammed if the player hit their head while jumping.
+- Disabled floor collision in build mode (accidentally enabled it again in 57).
+
 ## [2025-11-17_1530](https://github.com/CG8516/DumpingGround/raw/main/EFPSE_DEVBUILDS/EasyFPSEditor_CE_DEV_2025-11-17_1530.exe) : (1.11 alpha 57)
 
 ### Fixes:
